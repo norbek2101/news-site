@@ -1,10 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "vender/bootstrap/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "vender/bootstrap-icons/bootstrap-icons.css" %}">
 </head>
 <body>
-$END$
+    <div class="container">
+        <a href="{% url 'home' %}">Home</a> | <a href="{% url 'davlatlar' %}">Davlatlar</a>
+        <hr>
+    </div>
+
+
+    {% block content %}
+    {% endblock %}
+    <script src="{% static "vender/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "vender/bootstrap/js/bootstrap.bundle.js" %}"></script>
 </body>
 </html>
