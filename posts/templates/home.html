@@ -1,0 +1,32 @@
+{% extends 'base2.html' %}
+{% block content %}
+    <div class="container">
+        <div class="text-right">
+            <a href="{% url "country_create" %}" class="btn btn-success">Qo'shish</a>
+            <hr>
+        </div>
+        <div class="list-group">
+            {% for c in country %}
+                <div class="list-group-item d-flex align-items-center">
+                    <div>
+                        <h4>{{ c.name }}</h4>
+                        <p>{{ c.capital }}</p>
+                    </div>
+                    <div class="ml-auto">
+                        <a href="{% url "country_update" c.id %}" class="btn btn-warning">
+                            <i class="bi bi-pencil text-white"></i>
+                        </a>
+                        <a href="{% url "country_delete" c.id %}" class="btn btn-primary">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </div>
+
+            {% empty %}
+                <div class="container text-center">
+                    <h4>Davlatlar mavjud emas! </h4>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+ {% extends 'base.html' %}
+ {% block content %}
+         <div class="container">
+        <form action="{% if c %}{% url "country_update" c.id %}{% else %}{% url "country_create" %}{% endif %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Davlat nomi:</label>
+                <input  id="id_name" type="text" name="name"  value="{{ c.name }}" class="form-control" placeholder="Davlat nomini kiriting">
+
+            </div>
+            <div class="form-group">
+                <label for="id_capital">Davlat poyitahti:</label>
+                <input type="text" name="capital" value="{{ c.capital }}" id="id_capital" class="form-control" placeholder="Poyitaht nomini kiriting">
+            </div>
+            <button type="submit" class="btn btn-success">Saqlash</button>
+        </form>
+    </div>
+ {% endblock %}
